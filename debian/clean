@@ -1,0 +1,9 @@
+## Debian CI:
+debian/.gitlab-ci.yml
+debian/.yamllint
+
+build
+config.cache
+config.status
+doc/html/*.png
+doc/html/*.html

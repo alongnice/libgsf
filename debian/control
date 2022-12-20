@@ -1,0 +1,95 @@
+Source: libgsf
+Section: libs
+Priority: optional
+Maintainer: Dmitry Smirnov <onlyjob@debian.org>
+Build-Depends: debhelper-compat (= 12), dh-buildinfo
+              ,gobject-introspection (>= 1.41.4)
+              ,gtk-doc-tools
+              ,intltool
+              ,libbz2-dev
+              ,libgirepository1.0-dev
+              ,libglib2.0-dev
+              ,libglib2.0-doc
+              ,libgtk2.0-dev
+              ,libxml2-dev
+              ,unzip <!nocheck>
+              ,zlib1g-dev
+Standards-Version: 4.5.0
+Homepage: http://projects.gnome.org/libgsf/
+Vcs-Browser: https://salsa.debian.org/debian/libgsf
+Vcs-Git: https://salsa.debian.org/debian/libgsf.git
+Rules-Requires-Root: no
+
+Package: gir1.2-gsf-1
+Section: introspection
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Conflicts: gir1.2-libgsf-1
+Replaces: gir1.2-libgsf-1
+Depends: ${gir:Depends}, ${misc:Depends}
+Description: GObject introspection data for the Structured File Library
+ This package contains introspection data for the Structured File Library.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
+
+Package: libgsf-1-114
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libgsf-1-common (>= ${source:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Structured File Library - runtime version
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+
+Package: libgsf-1-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libgsf-1-114 (= ${binary:Version}), gir1.2-gsf-1 (= ${binary:Version})
+        ,libbz2-dev
+        ,libglib2.0-dev
+        ,libxml2-dev
+        ,${misc:Depends}
+Conflicts: gir1.2-libgsf-1
+Replaces: libgsf-gnome-1-dev (<= 1.14.8-1), gir1.2-libgsf-1
+Recommends: pkg-config
+Description: Structured File Library - development files
+ This package contains the development files used in building applications
+ that use the GNOME Structured File Library.
+ .
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats. It is actively being developed and its API is still likely to
+ undergo significant changes (in particular, extensions).
+
+Package: libgsf-1-common
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Replaces: libgsf-1 (<= 1.12.3-4)
+Description: Structured File Library - common files
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+ .
+ These are the architecture independent files that are part of libgsf,
+ like translations of messages.
+
+Package: libgsf-bin
+Section: gnome
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Suggests: imagemagick
+Replaces: libgsf-1 (<= 1.12.3-3), libgsf-gnome-1 (<= 1.12.3-4)
+Description: Structured File Library - programs
+ The GNOME Structured File Library aims to provide an efficient
+ extensible I/O abstraction for dealing with different structured file
+ formats.
+ .
+ These are the programs that are shipped as part of libgsf. They include
+ a thumbnail generator, a tar-like archiver application and a VBA macro
+ extractor.
