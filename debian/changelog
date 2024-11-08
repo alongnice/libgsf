@@ -1,3 +1,9 @@
+libgsf (1.14.47-deepin2) unstable; urgency=medium
+
+  * merge patch,fix CVE-2024-36474 CVE-2024-42415.
+
+ -- kongxinglong <kongxinglong@uniontech.com>  Fri, 08 Nov 2024 08:26:27 +0800
+
 libgsf (1.14.47-deepin1) unstable; urgency=medium
 
   * Rebuild
